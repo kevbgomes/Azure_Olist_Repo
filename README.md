@@ -26,6 +26,28 @@ E-Commerce Public Dataset by Olist - Ingested, Transformed, Stored on Azure
 
 ![image](https://github.com/kevbgomes/Azure_Olist_Repo/assets/111183588/80290039-ec4e-4976-b224-9d04be64cb5b)
 
+## Data Ingestion using Azure Data Factory
+1. First, created an Azure Data Factory workspace within the previously established resource group (olist_resource_group).
+2. After setting up the workspace, launch the Azure Data Factory Studio. 
+4. Within the studio, initialize a new data integration pipeline. 
+   - Configuring Copy data to move the csv file from the database to the landing container .
+   - Establishing the Linked Service for source and sink.
+   - Source Linked Service
+     
+     ![image](https://github.com/kevbgomes/Azure_Olist_Repo/assets/111183588/a44d80be-5edd-43c5-a632-9600360fd12c)
+
+   - Sink Linked Service
+
+     ![image](https://github.com/kevbgomes/Azure_Olist_Repo/assets/111183588/8a3c2918-13d6-4850-ab15-87fa42274fab)
+
+ 5. On Sql server defining firewall rules.
+
+    ![image](https://github.com/kevbgomes/Azure_Olist_Repo/assets/111183588/04f09982-26e9-4a05-8565-5fa6c35cc31d)
+
+
+    
+   
+
 
    
 
