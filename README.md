@@ -79,11 +79,42 @@ E-Commerce Public Dataset by Olist - Ingested, Transformed, Stored on Azure
 ## Data Transformation using Azure Databricks
 1. Navigate to Azure Databricks within the Azure portal and create a workspace within the previously established resource group and launch it.
 2. Configuring Compute in Databricks
-3. Create a new notebook within Databricks and rename it appropriately, reflecting its purpose or the dataset it pertains to.
+3. Create a new notebook within Databricks.
+
 4. Establishing a Connection to Azure Data Lake Storage (ADLS) using App Registration.
    - Create a new registration;
+
+     ![image](https://github.com/kevbgomes/Azure_Olist_Repo/assets/111183588/22e54d9c-4055-45e8-9a1f-e49ba4a5b6b8)
+
+     
    - Copy the credentials (Client ID, Tenant ID), to later write the appropriate code in the Databricks notebook to mount ADLS.
-   - In Certificate & Secrets: create a secret for later on store in in the Key Vault, for security purposes.
+    ![image](https://github.com/kevbgomes/Azure_Olist_Repo/assets/111183588/44c88f04-6b73-4a11-b3c5-007b8037baf8)
+
+     
+5. Using Key Vault in the Azure account for Secure key protecting:
+   - In Key Vault, create a key vault with the same resource used before;
+   - Now in the 'Secrets', generate a secret with the App Registration Key secret, name it and create.
+   - This Key Vault will secure your secret key so it exposed in the mount code.
+
+6. In Databricks, created a secret scope:
+  - To create it, substitute url go to https://<databricks_instance.net>#secrets/createScope;
+  - Create a Scope using the DNS and Resource ID from the Key Vault properties.
+    ![image](https://github.com/kevbgomes/Azure_Olist_Repo/assets/111183588/1799c69c-80a2-4dc3-9b57-033954d30a8b)
+    ![image](https://github.com/kevbgomes/Azure_Olist_Repo/assets/111183588/086ba5e1-9b6b-4f75-af43-5eb1320d2bde)
+
+   
+
+7. Writing Data Transformations mount ADLS Gen2 to Databricks.
+   - Within the code using python with OS library, removed files that were not used. (code is provided in the reference below)
+   - Create a dataframe (pyspark), transformed columns with the correct datatype and created table within a database to query.
+
+
+
+8. Writing Transformed Data to ADLS Gen2
+   - Folder is create in the container with the partitioned files
+
+
+Refer below notebook to transformations and code used to mount ADLS Gen2 to Databricks.
 
 
  
